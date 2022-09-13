@@ -2,12 +2,16 @@ const loadPhones = async (searchText, dataLimit) => {
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
   const res = await fetch(url);
   const data = await res.json();
+  //   console.log(data.data);
+  //   console.log(dataLimit);
   displayPhones(data.data, dataLimit);
 };
 
 const displayPhones = (phones, dataLimit) => {
+  //   console.log(phones);
+  //   console.log(dataLimit);
   const phonesContainer = document.getElementById("phones-container");
-  // phonesContainer.textContent = '';
+  phonesContainer.textContent = "";
   // display 10 phones only
   const showAll = document.getElementById("show-all");
   if (dataLimit && phones.length > 10) {
