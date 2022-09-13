@@ -89,7 +89,7 @@ const loadPhoneDetails = async (id) => {
 };
 
 const displayPhoneDetails = (phone) => {
-  console.log(phone.brand);
+  //   console.log(phone.releaseDate);
   const modalTitle = document.getElementById("phoneDetailModalLabel");
   modalTitle.innerText = phone.name;
   const phoneDetails = document.getElementById("phone-details");
@@ -97,8 +97,12 @@ const displayPhoneDetails = (phone) => {
   //   console.log(phone.mainFeatures.sensors[0]);
   //   phoneDiv.innerHTML = `
   phoneDetails.innerHTML = `
-        <p>Release Date: ${phone.releaseDate}</p>
-        <p>Storage: ${phone.mainFeatures}</p>
+        <p>Release Date: ${
+          phone.releaseDate ? phone.releaseDate : "no data found"
+        }</p>
+        <p>Storage: ${
+          phone.mainFeatures ? phone.mainFeatures.storage : "no data found"
+        }</p>
         <p>Others: ${
           phone.others ? phone.others.Bluetooth : "No Bluetooth Information"
         }</p>
@@ -107,6 +111,7 @@ const displayPhoneDetails = (phone) => {
             ? phone.mainFeatures.sensors[0]
             : "no sensor"
         }</p>
+        <img src="${phone.image}" class="card-img-top" alt="${phone.name}">
     `;
   //   phoneDetails.appendChild(phoneDiv);
 };
