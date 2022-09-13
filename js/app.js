@@ -89,13 +89,14 @@ const loadPhoneDetails = async (id) => {
 };
 
 const displayPhoneDetails = (phone) => {
-  console.log(phone);
-  const modalTitle = document.getElementById("phoneDetailModalLabelTitle");
+  console.log(phone.brand);
+  const modalTitle = document.getElementById("phoneDetailModalLabel");
   modalTitle.innerText = phone.name;
   const phoneDetails = document.getElementById("phone-details");
-  const phoneDiv = document.createElement("div");
+  //   const phoneDiv = document.createElement("div");
   //   console.log(phone.mainFeatures.sensors[0]);
-  phoneDiv.innerHTML = `
+  //   phoneDiv.innerHTML = `
+  phoneDetails.innerHTML = `
         <p>Release Date: ${phone.releaseDate}</p>
         <p>Storage: ${phone.mainFeatures}</p>
         <p>Others: ${
@@ -107,7 +108,7 @@ const displayPhoneDetails = (phone) => {
             : "no sensor"
         }</p>
     `;
-  phoneDetails.appendChild(phoneDiv);
+  //   phoneDetails.appendChild(phoneDiv);
 };
 
 loadPhones("apple");
